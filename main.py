@@ -94,9 +94,36 @@ if __name__ == "__main__":
         results.append([data[1] ,avg_authoritarian, avg_left])
     auth_vals = []
     left_vals = []
+    subreddits = []
     for result in results:
-        auth_vals.append(result[1])
-        left_vals.append(result[2])
-    plot_scatter(left_vals, auth_vals)
+        subreddits.append(result[0])
+        auth_vals.append(round(result[1], 1))
+        left_vals.append(round(result[2],1))
+    
+    x = left_vals
+    y = auth_vals
+    labels = subreddits
 
+    # Create scatter plot
+    plt.scatter(x, y, c='blue', label='Data Points')
+
+    colormap = plt.get_cmap('tab20')
+
+    # Add labels and title
+    plt.xlabel('left to right')
+    plt.ylabel('libertarian to authoritarian')
+    plt.title('Political compass of subreddits')
+
+    # Create custom legends for each point
+    for i in range(len(x)):
+        plt.scatter(x[i], y[i], color=colormap(i / len(x)), label=f'{labels[i]}: ({x[i]}, {y[i]})')
+
+    # Display the legend outside the plot
+    plt.legend(loc='upper left', bbox_to_anchor=(1, 1), title='Point Labels')
+
+    # Adjust layout to make room for the legend
+    plt.tight_layout()
+
+    # Show the plot
+    plt.show()
     print(results)
