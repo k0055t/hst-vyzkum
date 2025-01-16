@@ -75,7 +75,7 @@ for i in results:
 norm = plt.Normalize(min(colors), max(colors))
 
 # Create the scatter plot
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(14, 10))
 scatter = plt.scatter(x, y, c=colors, cmap='RdYlGn', norm=norm)
 
 # Add color bar for reference

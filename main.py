@@ -75,8 +75,8 @@ def plot_scatter(x_values, y_values, title="Reddit political map", x_label="left
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     
-    plt.xlim(-9, 9)
-    plt.ylim(-9, 9)
+    plt.xlim(-5, 5)
+    plt.ylim(-5, 5)
     
     # Show the plot
     plt.show()
